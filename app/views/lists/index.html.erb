@@ -1,0 +1,14 @@
+<h1>TODO List</h1>
+
+<%= form_for @list do |form| %>
+<ul>
+  <%= form.label :title %><%= form.text_field :title %>
+  <%= form.submit %>
+</ul>
+<% end %>
+
+<table>
+  <tbody>
+    <%= render @lists %>
+  </tbody>
+</table>
