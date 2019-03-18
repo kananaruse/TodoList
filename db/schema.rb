@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 2019_03_18_062303) do
     t.date "due_date", default: "2019-03-18"
     t.date "create_date", default: "2019-03-18"
     t.boolean "done"
+    t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
 end

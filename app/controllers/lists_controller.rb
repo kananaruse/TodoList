@@ -6,12 +6,17 @@ class ListsController < ApplicationController
   end
 
   def show
-  	@list = List.find_by(:title => params[:title])
+    @list = List.find(params[:id])
   end
 
   def create
-    @list = List.new(params[:list].permit(:title, :check, :deadline, tasks_attributes: [:name, :due_date, :create_date, :done]))
+    @list = List.new(list_params)
     @list.save
     redirect_to :lists
   end
+
+  private
+    def list_params
+      params.require(:list).permit(:title, :check, :deadline, tasks_attributes: [:name, :due_date, :create_date, :done])
+    end
 end
