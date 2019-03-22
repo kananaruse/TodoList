@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_062303) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
-    t.date "deadline", default: "2019-03-18"
+    t.date "deadline", default: "2019-03-20"
     t.string "check", default: "ToDoがありません"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 2019_03_18_062303) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.date "due_date", default: "2019-03-18"
-    t.date "create_date", default: "2019-03-18"
-    t.boolean "done"
+    t.date "due_date", default: "2019-03-20"
+    t.date "create_date", default: "2019-03-20"
+    t.boolean "done", default: false
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

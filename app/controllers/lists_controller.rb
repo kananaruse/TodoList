@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
   def index
     @list = List.new
-    # @list.tasks.build
     @lists = List.all
   end
 
@@ -11,8 +10,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
-    redirect_to :lists
+    @lists = List.all
+    if @list.save
+      redirect_to lists_path
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
   private

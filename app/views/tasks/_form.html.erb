@@ -1,0 +1,15 @@
+<%= form_for( [@list, @list.tasks.build] ) do |f| %>
+  <p>
+    <%= f.label :name, "ToDo名" %>
+    <%= f.text_field :name%>
+  </p>
+
+  <p>
+    <%= f.label :due_date, "期限日" %>
+    <%= f.text_field :due_date%>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

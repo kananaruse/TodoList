@@ -1,14 +1,25 @@
 <h1>TODO List</h1>
 
-<%= form_for @list do |form| %>
-<ul>
-  <%= form.label :title %><%= form.text_field :title %>
-  <%= form.submit %>
-</ul>
+<%= form_for @list, url: lists_path do |form| %>
+<p>
+  <%= form.label :title %> <br>
+  <%= form.text_field :title %> <br>
+  <%= form.submit %> <br>
+</p>
+  <% if @list.errors.any? %>
+    <%= @list.errors.messages[:title][0] %>
+  <% end %>
+
 <% end %>
 
 <table>
   <tbody>
-    <%= render @lists %>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.title, list %></td>
+        <td><%= list.tasks.count %>個中<%= list.tasks.finished.count %>個がチェック済み</td>
+        <td><%= list.deadline %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= button_to "完了", [@list, task], method: :post %></td>
+  <td><%= task.name %></td>
+  <td><%= task.done %></td>
+  <td><%= task.due_date %></td>
+  <td><%= task.create_date %></td>
+  <td><%= link_to 'ToDo削除', [@list, task],
+              method: :delete, data: { confirm: '削除しますか？' } %></td>
+</tr>
