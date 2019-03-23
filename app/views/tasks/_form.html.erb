@@ -1,5 +1,6 @@
 <%= form_for( [@list, @list.tasks.build] ) do |f| %>
   <p>
+    <%= f.label "新しいToDoを作成" %> <br>
     <%= f.label :name, "ToDo名" %>
     <%= f.text_field :name%>
   </p>

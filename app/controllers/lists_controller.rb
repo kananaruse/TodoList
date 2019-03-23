@@ -18,6 +18,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def search
+    @lists = List.search(params[:search])
+    @tasks = Task.search(params[:search])
+  end
+
   private
     def list_params
       params.require(:list).permit(:title, :check, :deadline, tasks_attributes: [:name, :due_date, :create_date, :done])

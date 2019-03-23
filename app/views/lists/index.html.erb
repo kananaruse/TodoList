@@ -1,8 +1,9 @@
-<h1>TODO List</h1>
+<h1><%= link_to 'TODO List', lists_path %></h1>
+<h2><%= link_to "検索", search_lists_path %></h2>
 
 <%= form_for @list, url: lists_path do |form| %>
 <p>
-  <%= form.label :title %> <br>
+  <%= form.label "新しいToDoリストを作成" %> <br>
   <%= form.text_field :title %> <br>
   <%= form.submit %> <br>
 </p>
@@ -18,7 +19,7 @@
       <tr>
         <td><%= link_to list.title, list %></td>
         <td><%= list.tasks.count %>個中<%= list.tasks.finished.count %>個がチェック済み</td>
-        <td><%= list.deadline %></td>
+        <td>〜<%= list.tasks.order('done, due_date, name')[0].due_date.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end %>
   </tbody>
