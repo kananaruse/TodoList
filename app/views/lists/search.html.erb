@@ -1,6 +1,3 @@
-<h1><%= link_to 'TODO List', lists_path %></h1>
-<h2><%= link_to "検索", search_lists_path %></h2>
-
 <p>検索</p>
 <%= form_tag(search_lists_path,:method => 'get') do %>
   <%= text_field_tag :search %>
@@ -12,12 +9,12 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.name, list_url(task.list_id) %></td>
-        <td>リスト：<%= task.list.title %></td>
+        <th><%= link_to task.name, list_url(task.list_id) %></th>
+        <td align = "right">期限：<%= task.due_date %></td>
       </tr>
       <tr>
-        <td>期限：<%= task.due_date %></td>
-        <td>作成日：<%= task.created_at.strftime("%Y-%m-%d") %></td>
+        <td align = "right">リスト：<%= task.list.title %></td>
+        <td align = "right">作成日：<%= task.created_at.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,7 +27,7 @@
     <% @lists.each do |list| %>
       <tr>
         <td><%= link_to list.title, list %></td>
-        <td>作成日：<%= list.created_at.strftime("%Y-%m-%d") %></td>
+        <td align = "right">作成日：<%= list.created_at.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end %>
   </tbody>

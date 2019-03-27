@@ -1,0 +1,131 @@
+$baseBlack:     #333;
+$baseGray:      #aaa;
+$baseLightGray: #eee;
+$baseBlue:      #428bca;
+$baseLightBlue: #5bc0de;
+$todoWhite:     #E8DDCB;
+$todoBrown:     #CDB380;
+$todoGreen:     #036564;
+$todoBlue:      #033649;
+$todoIndigo:    #031634;
+
+body,
+h1,h2,h3,h4,h5,h6,
+p,ul,ol,dl,dt,dd,li,
+table,th,td,
+form,select,option,input
+address,pre,strong,em,iframe,img{
+  margin:0;
+  padding:0;
+  font-size:100%;
+  border:0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+
+  color: $todoIndigo;
+  font-family: "Gotham Narrow SSm",Arial,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+a,
+a:-webkit-any-link {
+  text-decoration: none;
+  color: $todoBrown;
+  &:hover {
+    color: $baseGray;
+  }
+}
+
+body {
+  border-top: $todoWhite 1px solid;
+}
+
+#wrap {
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+
+  background-color: $todoWhite;
+}
+
+header {
+  background-color: $todoBlue;
+
+  .inner {
+    display: table;
+    width: 100%;
+    height: 58px;
+    position: relative;
+
+    a,
+    a:-webkit-any-link {
+      text-decoration: none;
+      color: $todoWhite;
+      &:hover {
+        color: $todoBrown;
+      }
+    }
+
+    #logo {
+      font-size: 150%;
+      display: table-cell;
+      text-align: left;
+      position: absolute;
+      bottom: 0;
+    }
+
+    #search {
+      display: table-cell;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+#main {
+  width: 800px;
+  height: 100%;
+
+  padding: 10px;
+
+  margin: 30px auto;
+
+  background-color: white;
+  border-radius: 5px;
+
+
+  h1 {
+    color: $todoIndigo;
+    font-size: 200%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $todoBrown;
+  }
+
+  table{
+    width: 90%;
+    text-align: center;
+    position: relative;
+  }
+
+  table th {
+    text-align: left;
+    position: absolute;
+  }
+
+}
+
+input[type="text"],
+textarea {
+  border-radius: 3px;
+  border: 1px solid $baseGray;
+}

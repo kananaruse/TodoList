@@ -9,7 +9,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class='<%= controller.controller_name %>'>
+  <div id="wrap">
+
+    <header id="header">
+      <div class="inner">
+        <p id="logo"><%= link_to "TODO List", lists_path %></p>
+        <p id="search"><%= link_to "検索", search_lists_path %></p>
+      </div><!-- /.inner -->
+    </header><!-- /#header -->
+
+    <div id="main">
+      <%= yield %>
+    </div><!-- /#main -->
+
+  </div><!-- /#wrap -->
   </body>
 </html>
