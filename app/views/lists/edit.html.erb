@@ -1,0 +1,11 @@
+<%= form_for @list, url: list_path, method: :patch do |form| %>
+<p>
+  <%= form.label "ToDoリストの名称を変更" %> <br>
+  <%= form.text_field :title %> <br>
+  <%= form.submit %> <br>
+</p>
+  <%= render 'layouts/error_messages', model: form.object %>
+
+<% end %>
+
+<%= link_to '戻る', lists_path %>

@@ -4,9 +4,8 @@
   <%= form.text_field :title %> <br>
   <%= form.submit %> <br>
 </p>
-  <% if @list.errors.any? %>
-    <%= @list.errors.messages[:title][0] %>
-  <% end %>
+  <%= flash[:success] %>
+  <%= render 'layouts/error_messages', model: form.object %>
 
 <% end %>
 
@@ -17,8 +16,18 @@
         <th><%= link_to list.title, list %></th>
       </tr>
       <tr>
-        <td align = "right"><%= list.tasks.count %>個中<%= list.tasks.finished.count %>個がチェック済み</td>
-        <td align = "right">〜<%= list.tasks.order('done, due_date, name')[0].due_date.strftime("%Y-%m-%d") %></td>
+        <% if list.tasks.any? %>
+          <td align = "right"><%= list.tasks.count %>個中<%= list.tasks.finished.count %>個がチェック済み</td>
+        <% else %>
+          <td align = "right">ToDoがありません</td>
+        <% end %>
+        <% if list.tasks.any? %>
+          <td align = "right">〜<%= list.tasks.order('done, due_date, name')[0].due_date.strftime("%Y-%m-%d") %></td>
+        <% else %>
+          <td>&nbsp;</td>
+        <% end %>
+        <td><%= link_to '削除', list_path(list), method: :delete, data: { confirm: '削除しますか？' } %></td>
+        <td><%= link_to '編集', edit_list_path(list) %></td>
       </tr>
     <% end %>
   </tbody>

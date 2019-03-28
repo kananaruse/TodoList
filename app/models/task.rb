@@ -1,8 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :list
-  validates :name,
-          presence: { message: "入力してください"},
-          length: { maximum: 30, message: "ToDoの名称は30文字以内にしてください"}
+  validates :name, presence: { message: "入力してください"}, length: { maximum: 30, message: "ToDoの名称は30文字以内にしてください"},
+    uniqueness: { message: "既に存在するToDo名です"}
   scope :finished, -> { where(done: true) }
   def self.search(search)
     return Task.all unless search

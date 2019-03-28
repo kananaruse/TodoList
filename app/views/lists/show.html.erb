@@ -4,6 +4,6 @@
 
 <table>
   <tbody>
-    <%= render @list.tasks.order('done, due_date, name') %>
+    <%= render @list.tasks.order('created_at DESC') %>
   </tbody>
 </table>

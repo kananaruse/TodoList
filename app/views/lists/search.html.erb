@@ -9,11 +9,13 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <th><%= link_to task.name, list_url(task.list_id) %></th>
+        <td><%= link_to task.name, list_url(task.list_id) %></td>
+        <td align = "right">リスト：<%= task.list.title %></td>
         <td align = "right">期限：<%= task.due_date %></td>
       </tr>
       <tr>
-        <td align = "right">リスト：<%= task.list.title %></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
         <td align = "right">作成日：<%= task.created_at.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end %>
